@@ -7,7 +7,7 @@ import logging
 import uuid
 
 from app.core.config import get_settings
-from app.api import habits, health
+from app.api import habits, health, chat
 from app.core.logging_config import setup_logging
 from app.core.exception_handler import (
     mindmirror_exception_handler,
@@ -62,12 +62,13 @@ async def add_request_id(request: Request, call_next):
 
 # Register exception handlers
 app.add_exception_handler(MindMirrorException, mindmirror_exception_handler)
-app.add_exception_handler(generic_exception_handler)
+app.add_exception_handler(Exception, generic_exception_handler)
 
 
 # Include routers
 app.include_router(health.router, prefix="/api", tags=["Health"])
 app.include_router(habits.router, prefix="/api", tags=["Habits"])
+app.include_router(chat.router, prefix="/api", tags=["Chat"])
 
 
 @app.get("/")

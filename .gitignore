@@ -1,99 +1,42 @@
 ```
 # Dependencies
 node_modules/
-venv/
 .venv/
+venv/
 __pycache__/
-*.egg-info/
-.Python
-.pytest_cache/
-.mypy_cache/
-.tox/
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
 
 # Build artifacts
 dist/
 build/
 target/
-*.pyc
-*.pyo
-*.pyd
-*.so
-*.dylib
-*.dll
-*.exe
-*.out
-*.o
-*.obj
 
-# Environment variables
+# Environment files
 .env
 .env.local
 *.env.*
 
-# IDE specific
+# Editor/IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
-.DS_Store
-Thumbs.db
+*.tmp
 
 # Logs
 *.log
-logs/
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# OS generated
+# OS files
 .DS_Store
-ehthumbs.db
-Icon?
 Thumbs.db
 
-# Temporary files
-*.tmp
-*.temp
-*.bak
-
-# Frontend build
-frontend/dist/
-frontend/build/
-frontend/node_modules/
-
-# Backend build
-backend/__pycache__/
-backend/*.pyc
-backend/build/
-backend/dist/
-
-# Gradle
-.gradle/
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+# Python specific
+*.py[cod]
+*$py.class
+*.so
+.Python
 ```

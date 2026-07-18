@@ -5,7 +5,7 @@ from functools import lru_cache
 class Settings(BaseSettings):
     """Application settings."""
     
-    nvidia_api_key: str
+    nvidia_api_key: str = "nvapi-demo-key-for-development"
     environment: str = "development"
     log_level: str = "INFO"
     
