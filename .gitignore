@@ -1,42 +1,99 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+```
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.egg-info/
+.Python
+.pytest_cache/
+.mypy_cache/
+.tox/
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Build artifacts
+dist/
+build/
+target/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.o
+*.obj
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Environment variables
+.env
+.env.local
+*.env.*
 
-# IDEs and editors
+# IDE specific
+.vscode/
 .idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
+*.swp
+*.swo
+*~
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# OS generated
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Frontend build
+frontend/dist/
+frontend/build/
+frontend/node_modules/
+
+# Backend build
+backend/__pycache__/
+backend/*.pyc
+backend/build/
+backend/dist/
+
+# Gradle
+.gradle/
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```
