@@ -1,16 +1,19 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, MessageCircle, BarChart3, Target } from 'lucide-react'
+import { ArrowLeft, MessageCircle, BarChart3, Target, Bot } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { useCoachingPlan, useHabits } from '@/hooks/useHabits'
 import BehaviorGraph from '@/components/BehaviorGraph'
 import RiskCard from '@/components/RiskCard'
 import DailyMission from '@/components/DailyMission'
+import AIChat from '@/components/ai/AIChat'
+import { useState } from 'react'
 
 export default function HabitPage() {
   const { habitId } = useParams<{ habitId: string }>()
   const { data: coachingPlan, isLoading } = useCoachingPlan(habitId!)
+  const [showChat, setShowChat] = useState(false)
 
   if (isLoading) {
     return (
@@ -29,18 +32,39 @@ export default function HabitPage() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-4"
+        className="flex items-center justify-between"
       >
-        <Link to="/">
-          <Button variant="ghost" size="icon">
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-        </Link>
-        <div>
-          <h1 className="text-3xl font-bold capitalize">{habitId?.replace('_', ' ')}</h1>
-          <p className="text-muted-foreground">Your personalized coaching dashboard</p>
+        <div className="flex items-center gap-4">
+          <Link to="/">
+            <Button variant="ghost" size="icon">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+          </Link>
+          <div>
+            <h1 className="text-3xl font-bold capitalize">{habitId?.replace('_', ' ')}</h1>
+            <p className="text-muted-foreground">Your personalized coaching dashboard</p>
+          </div>
         </div>
+        <Button 
+          onClick={() => setShowChat(!showChat)}
+          variant={showChat ? "default" : "outline"}
+          className={showChat ? "gradient-bg" : ""}
+        >
+          <Bot className="h-4 w-4 mr-2" />
+          {showChat ? 'Hide Coach' : 'Ask AI Coach'}
+        </Button>
       </motion.div>
+
+      {/* AI Chat Panel */}
+      {showChat && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+        >
+          <AIChat habitId={habitId!} onClose={() => setShowChat(false)} />
+        </motion.div>
+      )}
 
       {/* Action Buttons */}
       <div className="flex gap-4">
